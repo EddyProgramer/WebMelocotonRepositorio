@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/style.css"> <!-- Aquí puedes crear tu propio archivo CSS -->
+    <style>
+        /* Estilo CSS para el encabezado */
+        #main-header {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+            background-color: rgba(78, 245, 106, 0.8); /* Color de fondo con transparencia */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Añade una sombra para un aspecto visual */
+            display: flex;
+            justify-content: space-between; /* Distribuye los elementos en el encabezado */
+            align-items: center; /* Centra verticalmente los elementos */
+            padding: 0 20px; /* Añade un espacio alrededor del contenido del encabezado */
+        }
+
+        .header-image {
+            max-width: 125px; /* Ajusta el tamaño de la imagen según sea necesario */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <h1 id="main-header">
+            <img src="static/images/melocoton.png" alt="Descripción de la imagen" class="header-image">
+            MELOCOTÓN
+            <img src="static/images/melocoton.png" alt="Descripción de la imagen" class="header-image">
+        </h1>
+
+        <!-- Contenido de la página -->
+        <div class="media-container">
+            <!-- GIF -->
+            <img src="static/images/robot.gif" alt="Descripción de la animación">
+        </div>
+        <div id="chat-container">
+            <!-- Aquí se mostrarán los mensajes del chat -->
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="user-input" placeholder="Escribe tu mensaje">
+            <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Tu script personalizado -->
+    <script src="static/script.js"></script> <!-- Aquí puedes crear tu propio archivo JS -->
+    <script>
+        // JavaScript para ocultar el GIF de carga cuando la página ha terminado de cargar
+        window.addEventListener('load', function () {
+            // Ocultar el contenedor del GIF de carga
+            document.getElementById('loading-container').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

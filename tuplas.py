@@ -1,0 +1,21 @@
+    
+
+
+    ("Hola", "Hola, ¿en qué puedo ayudarte?"),
+    ("¿Qué tipo de software ofrecen?", "Ofrecemos una variedad de software, incluyendo aplicaciones de productividad, herramientas de gestión empresarial y soluciones de seguridad informática."),
+    ("¿Cuál es el precio de sus productos?", "Los precios varían según el producto y la licencia que elijas. Te recomendaría visitar nuestro sitio web para obtener información actualizada sobre precios y promociones."),
+    ("¿Cómo puedo contactar con el soporte técnico?", "Nuestro equipo de soporte técnico está disponible las 24 horas del día, los 7 días de la semana. Puedes contactarnos por teléfono, correo electrónico o a través de nuestro chat en línea."),
+    ("¿Ofrecen versiones de prueba de sus productos?", "Sí, ofrecemos versiones de prueba gratuitas de muchos de nuestros productos. Esto te permite probarlos antes de decidirte a comprar."),
+    ("¿Cuáles son los requisitos del sistema para utilizar su software?", "Los requisitos del sistema varían según el producto. En nuestro sitio web, encontrarás información detallada sobre los requisitos de hardware y software para cada producto."),
+    ("¿Tienen algún programa de descuentos para empresas?", "Sí, ofrecemos programas de descuento para empresas y organizaciones que compran licencias en volumen. Ponte en contacto con nuestro equipo de ventas para obtener más información sobre nuestras ofertas corporativas."),
+    ("¿Cómo puedo realizar el pago por el software?", "Aceptamos varios métodos de pago, incluyendo tarjetas de crédito, transferencias bancarias y PayPal. Durante el proceso de compra en nuestro sitio web, podrás seleccionar el método de pago que prefieras.")
+
+
+("¿Cuál es su política de reembolso?", "Nuestra política de reembolso varía según el producto y la situación. Te recomendaría leer nuestros términos y condiciones en nuestro sitio web o contactar con nuestro equipo de atención al cliente para obtener más detalles."),
+    ("¿Ofrecen actualizaciones gratuitas?", "Sí, ofrecemos actualizaciones gratuitas para nuestros productos durante un período determinado después de la compra. La duración de este período puede variar según el producto. Consulta nuestra página de soporte o comunícate con nuestro equipo de ventas para obtener más información."),
+    ("¿Cuánto tiempo lleva el proceso de instalación?", "El tiempo de instalación depende del producto y de tu sistema. Nuestros instaladores suelen ser intuitivos y guiados para facilitar el proceso. Si necesitas ayuda, nuestro equipo de soporte está disponible para asistirte durante la instalación."),
+    ("¿Sus productos son compatibles con mi sistema operativo?", "Nuestros productos son compatibles con una variedad de sistemas operativos, incluyendo Windows, macOS y Linux. Visita nuestra página de especificaciones técnicas para confirmar la compatibilidad con tu sistema operativo específico."),
+    ("¿Cómo puedo obtener una factura de mi compra?", "Recibirás una factura automáticamente por correo electrónico después de completar tu compra en nuestro sitio web. Si necesitas una copia adicional o tienes alguna pregunta sobre tu factura, no dudes en contactar con nuestro equipo de atención al cliente."),
+    ("¿Puedo transferir mi licencia a otro dispositivo?", "Sí, en la mayoría de los casos, puedes transferir tu licencia a otro dispositivo. Sin embargo, hay ciertas restricciones y procesos que debes seguir. Te recomendaría ponerte en contacto con nuestro equipo de soporte para obtener ayuda con la transferencia de tu licencia."),
+    ("¿Ofrecen servicios de personalización para sus productos?", "Sí, ofrecemos servicios de personalización para adaptar nuestros productos a las necesidades específicas de tu empresa u organización. Ponte en contacto con nuestro equipo de ventas para discutir tus requisitos y obtener más información sobre nuestros servicios de personalización."),
+    ("¿Cómo puedo cancelar mi suscripción?", "Puedes cancelar tu suscripción en cualquier momento desde tu cuenta en nuestro sitio web. Si necesitas ayuda con el proceso de cancelación o tienes alguna pregunta sobre las políticas de cancelación, nuestro equipo de atención al cliente estará encantado de ayudarte.")

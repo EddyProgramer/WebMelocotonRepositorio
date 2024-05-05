@@ -1,13 +1,13 @@
 # main.py
 
 from flask import Flask, render_template, request, jsonify
-from melocoton_chat_bot import ChatBot
+#from melocoton_chat_bot import ChatBot
 
 def crear_app():
     app = Flask(__name__)
 
     # Inicializa el chat bot
-    chat_bot = ChatBot()
+  #  chat_bot = ChatBot()
 
     @app.route('/')
     def index():

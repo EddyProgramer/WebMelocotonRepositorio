@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,63 +28,61 @@
             max-width: 125px; /* Ajusta el tamaño de la imagen según sea necesario */
         }
 
-        .chat-toggle-btn,
-.chat-toggle-btn2 {
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    width: 80px;
-    height: 80px;
-    background-color: rgba(255, 163, 118, 1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: url('static/icon/icon_mouse.png'), auto; /* Cambia el cursor al pasar sobre los botones */
-    z-index: 1001; /* Asegura que esté por encima del chat */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
-}
-
-.chat-toggle-btn:hover,
-.chat-toggle-btn2:hover {
-    background-color: rgba(95, 235, 15, 0.8); /* Cambia el color de fondo cuando se pasa el cursor */
-}
-
-        .chat-icon {
-            width: 80px;
-            height: 80px;
-        }
-        .chat-icon2 {
-            width: 60px;
-            height: 60px;
-        }
-
         /* Estilo CSS para el carrusel */
         .carousel-container {
-            margin-top: 320px; /* Ajusta la separación entre el encabezado y el carrusel */
+            margin-top: 100px; /* Ajusta la separación entre el encabezado y el carrusel */
             text-align: center; /* Centra el carrusel horizontalmente */
-            
         }
-    
+        
         .carousel-item img {
-        height: 50%; /* Ajusta la altura de las imágenes al 100% del contenedor */
-        width: 50%; /* Ajusta el ancho automáticamente para mantener la proporción */
-    }
+            height: 50%; /* Ajusta la altura de las imágenes al 100% del contenedor */
+            width: 50%; /* Ajusta el ancho automáticamente para mantener la proporción */
+        }
+
+            /* Estilo CSS para el contenedor del GIF */
+            .media-container {
+            position: relative;
+            margin-top: 800px; /* Ajusta la separación entre el encabezado y el GIF */
+            text-align: center; /* Centra horizontalmente el GIF */
+        }
+
+        #gif {
+            width: 600px; /* Ajusta el ancho del GIF según sea necesario */
+        }
+        #gif:hover {
+         cursor: url('static/icon/icon_mouse.png'), auto; /* Cambia el cursor a una imagen personalizada cuando pasa sobre el GIF */
+        }
+
+        /* Estilo CSS para el contenedor del chat */
+        #chat-container {
+            position: absolute;
+            top: calc(70% + 100px); /* Posición desde la parte inferior del GIF */
+            left: 50%; /* Posición horizontal centrada */
+            transform: translateX(-50%); /* Centra horizontalmente */
+            width: 300px; /* Ancho del contenedor */
+            height: 80px; /* Altura del contenedor */
+            background-color: rgb(231, 217, 22);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(59, 204, 15, 0.1);
+            z-index: 1000;
+            display: none; /* Oculta el contenedor de chat por defecto */
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- GIF -->
+        <div class="media-container" onclick="mostrarChat()"> <!-- Añade el evento onclick -->
+            <img src="static/images/melocoton_gif.gif" alt="Descripción de la animación" id="gif">
+        </div>
+
         <!-- Encabezado -->
         <h1 id="main-header">
             <img src="static/images/melocoton.png" alt="Descripción de la imagen" class="header-image">
             MELOCOTON
             <img src="static/images/melocoton.png" alt="Descripción de la imagen" class="header-image">
         </h1>
-
-        <!-- GIF -->
-        <div class="media-container">
-            <img src="static/images/robot.gif" alt="Descripción de la animación" id="gif" onclick="mostrarChat()">
-        </div>
 
         <!-- Carrusel -->
         <div class="carousel-container">
@@ -108,23 +106,14 @@
         <!-- Fin del Carrusel -->
 
         <!-- Contenedor del chat -->
-        <div id="chat-container" style="display: none;">
+        <div id="chat-container">
             <div id="chat-content"></div>
             <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
             <button onclick="enviarMensaje()">Enviar</button>
         </div>
     </div>
 
-    <!-- Botón circular para abrir el chat -->
-    <div id="chat-toggle-btn" class="chat-toggle-btn">
-        <img src="static/images/chatboticon.png" alt="Abrir chat" class="chat-icon">
-    </div>
-
-    <!-- Bootstrap JS (requiere jQuery) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <!-- Scripts al final del cuerpo HTML -->
     <script>
         function mostrarChat() {
             var chatContainer = document.getElementById('chat-container');
@@ -132,19 +121,32 @@
         }
 
         function enviarMensaje() {
-            var userInput = document.getElementById('user-input').value;
-            document.getElementById('user-input').value = ''; // Limpiar el campo de entrada
+    var userInput = document.getElementById('user-input').value;
+    
+    // Enviar el mensaje al servidor Flask
+    fetch('/enviar-mensaje', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({mensaje: userInput}),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Mostrar la respuesta del chatbot en el frontend
+        var chatContent = document.getElementById('chat-content');
+        chatContent.innerHTML += '<div>ChatBot: ' + data.respuesta + '</div>';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
 
-            // Enviar mensaje al chatbot (puedes usar AJAX para enviarlo al servidor Python)
-            // Aquí deberías hacer una solicitud al servidor para obtener la respuesta del chatbot
-            var respuesta = obtenerRespuestaDelChatbot(userInput);
+    </script>
 
-            // Mostrar la respuesta del chatbot en el contenedor
-            var chatContent = document.getElementById('chat-content');
-            chatContent.innerHTML += '<div><strong>Tú:</strong> ' + userInput + '</div>';
-            chatContent.innerHTML += '<div><strong>ChatBot:</strong> ' + respuesta + '</div>';
-        }
-
-        // Función para obtener respuesta del chatbot (simulación)
-        function obtenerRespuestaDelChatbot(mensaje) {
-            // Aquí deberías enviar una solicitud al servidor Python para
+    <!-- Bootstrap JS (requiere jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
